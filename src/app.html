@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="cerberus">
+<html lang="bg" data-theme="cerberus">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
@@ -13,7 +13,6 @@
 						window.dataLayer.push(arguments);
 					}
 				}
-				// window.dataLayer.push(arguments);
 			}
 			if (readCookie() == null) {
 				gtag('consent', 'default', {
@@ -37,8 +36,10 @@
 				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
 				f.parentNode.insertBefore(j, f);
 			})(window, document, 'script', 'dataLayer', 'GTM-NP3QGL8H');
-
-			//  <!-- End Google Tag Manager -->
+		</script>
+		<!-- End Google Tag Manager -->
+		
+		<script>
 			function readCookie() {
 				let c = null;
 				const cookie = document.cookie
@@ -47,7 +48,6 @@
 				if (cookie) {
 					c = decode(cookie ?? '');
 				}
-
 				return c;
 			}
 

@@ -42,7 +42,7 @@ async function validateTurnstile(token: string): Promise<TurnstileResponse> {
 export const load: PageServerLoad = async ({ url }) => ({
 	metaData: {
 		currentUrl: url.href,
-		orginUrl: url.origin,
+		originUrl: url.origin,
 		path: url.pathname,
 		description:
 			'Тук ще намериш данните за връзката с нас. Попълни формата за контакт и ние ще се свържем с Теб възможно най-скоро.',

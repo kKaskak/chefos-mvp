@@ -1,3 +1,17 @@
 User-agent: *
+Allow: /
 
-Sitemap: https://www.chefoscleaning.com/sitemap.xml
+# Disallow admin or private areas if they exist
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Allow important files
+Allow: /sitemap.xml
+Allow: /robots.txt
+
+# Crawl delay
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://chefoscleaning.com/sitemap.xml

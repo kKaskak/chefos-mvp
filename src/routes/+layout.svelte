@@ -17,7 +17,7 @@
 	title={page.data.metaData?.title ?? data.defaultMeta.title}
 	type={page.data.metaData?.type ?? data.defaultMeta.type}
 	staticImgUrl={page.data.metaData?.staticImgUrl ?? data.defaultMeta.image.url}
-	originUrl={page.data.metaData?.originUrl ?? data.defaultMeta.orginUrl}
+	originUrl={page.data.metaData?.originUrl ?? data.defaultMeta.originUrl}
 	path={page.data.metaData?.path ?? data.defaultMeta.path}
 />
 

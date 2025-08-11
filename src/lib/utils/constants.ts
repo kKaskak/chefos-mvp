@@ -17,6 +17,19 @@ export const HOME_TITLE: string = `${SITE_NAME} <br/> Варна`;
 export const HERO_TAGLINE: string = 'Професионално почистване';
 export const LOGO_SVG_PATH: string = '$lib/assets/img/chefos_logo_1.svg';
 
+// #### #### #### #### #### ####
+// ####  SEO & Meta Tags:
+// #### #### #### #### #### ####
+export const DEFAULT_META_TITLE: string = 'Почистване на прозорци';
+export const DEFAULT_META_DESCRIPTION: string = 'Професионално почистване на прозорци, витрини, офиси и фасади във Варна. Качествено почистване с екологични продукти.';
+export const DEFAULT_META_KEYWORDS: string = 'Варна, почистване, прозорци, витрини, професионално почистване, почистване на прозорци, почистване на витрини, почистване на стъкла, почистване на офиси, екологично почистване';
+export const SITE_BRAND: string = 'Почистване Варна | Chefo\'s Cleaning';
+export const SOCIAL_IMAGE_ALT: string = 'Chefo\'s Cleaning - Професионално почистване на прозорци и витрини във Варна';
+export const SOCIAL_CARD_IMAGE: string = '/card-image.png';
+
+// #### #### #### #### #### ####
+// ####  CSP Content:
+// #### #### #### #### #### ####
 export const DEV_CSP_CONTENT: string =
 	"default-src 'self'; script-src 'self' 'unsafe-inline' http: http://localhost:5173 http://192.168.50.10 https://challenges.cloudflare.com https://www.googletagmanager.com https://scripts.simpleanalyticscdn.com/latest.js https://queue.simpleanalyticscdn.com; style-src 'self' 'unsafe-inline' http: https://4forin-593620436.imgix.net; img-src 'self' data: https://4forin-593620436.imgix.net https://images.unsplash.com http://www.w3.org/2000/svg http://www.w3.org/1999/xlink https://queue.simpleanalyticscdn.com https://cdn.dribbble.com; font-src 'self'; connect-src 'self' https://sheets.googleapis.com https://challenges.cloudflare.com https://smtp.gmail.com https://scripts.simpleanalyticscdn.com/latest.js https://queue.simpleanalyticscdn.com/append https://region1.google-analytics.com; object-src 'none'; frame-src https://challenges.cloudflare.com; base-uri 'none'; form-action 'self'; block-all-mixed-content";
 export const PROD_CSP_CONTENT: string =

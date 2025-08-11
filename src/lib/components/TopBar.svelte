@@ -4,8 +4,8 @@
 	import { AppBar, Modal } from '@skeletonlabs/skeleton-svelte';
 	import Menu from 'lucide-svelte/icons/menu';
 	const mainNavLinkStyles =
-		'text-secondary-900 text-base font-medium translate-y-0 transition duration-300 ease-in-out hover:text-primary-700 hover:-translate-y-1 transform';
-	const mobileNavLinkStyles = 'px-2 py-1 transition-colors hover:bg-surface-200';
+		'text-gray-800 dark:text-gray-200 text-base font-medium translate-y-0 transition-all duration-300 ease-in-out hover:text-blue-600 dark:hover:text-blue-400 hover:-translate-y-1 transform px-3 py-2 rounded-lg hover:bg-white/20 dark:hover:bg-gray-800/20';
+	const mobileNavLinkStyles = 'px-4 py-3 transition-all duration-200 hover:bg-blue-50 dark:hover:bg-gray-800/50 rounded-lg text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400';
 
 	const mainNavLinks = NAVIGATION_ITEMS.filter((item) => item.isMain);
 	const mobileNavLinks = NAVIGATION_ITEMS.filter((item) => item.isMobile);
@@ -40,21 +40,23 @@
 
 <!-- NAVBAR -->
 <div
-	class="bg-surface-100/30 dark:bg-surface-300/60 flex w-full items-center justify-between"
+	class="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md flex w-full items-center justify-between border-b border-gray-200/50 dark:border-gray-700/50 shadow-lg sticky top-0 z-50"
 	role="navigation"
 >
 	<AppBar
 		headlineClasses="sm:hidden"
 		centerClasses="hidden sm:block"
-		leadClasses="h-[4em]"
-		classes="z-[1] flex justify-between bg-transparent"
-		trailClasses="mr-6"
+		leadClasses="h-16 flex items-center justify-start"
+		classes="z-[1] flex justify-between bg-transparent w-full"
+		trailClasses="mr-6 flex items-center"
 	>
 		{#snippet lead()}
-			<img src={logo1} width="120" height="120" alt="website logo" aria-label="website logo" />
+			<div class="flex items-center h-full pl-4">
+				<img src={logo1} width="80" height="80" alt="website logo" aria-label="website logo" class="drop-shadow-sm" />
+			</div>
 		{/snippet}
 		{#snippet trail()}
-			<div class="hidden space-x-4 sm:flex">
+			<div class="hidden space-x-3 sm:flex items-center">
 				{#each mainNavLinks as item}
 					{#if item.url !== ''}
 						{@render link2(item.url, item.title, false)}
@@ -65,8 +67,8 @@
 				<Modal
 					onclick={drawerOpen}
 					open={drawerState}
-					triggerBase="btn preset-tonal"
-					contentBase="bg-surface-100 opacity-75 p-4 space-y-4 shadow-xl w-[220px] fixed top-0 right-0 dark:bg-secondary-300/50"
+					triggerBase="btn preset-tonal bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700"
+					contentBase="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md p-6 space-y-4 shadow-2xl w-[280px] fixed top-0 right-0 border border-gray-200/50 dark:border-gray-700/50"
 					positionerJustify="justify-start"
 					positionerAlign=""
 					positionerPadding=""
@@ -75,16 +77,16 @@
 				>
 					{#snippet trigger()}
 						{#if !drawerState}
-							<Menu size={20} aria-label="open" role="button" />
+							<Menu size={20} aria-label="open" role="button" class="text-gray-700 dark:text-gray-300" />
 						{/if}
 					{/snippet}
 					{#snippet content()}
 						<div class="flex flex-col items-end space-y-4 p-4">
 							<button
 								type="button"
-								class="btn preset-filled pb-3"
+								class="btn preset-filled pb-3 bg-red-500 hover:bg-red-600 text-white"
 								aria-label="close"
-								onclick={drawerClose}>x</button
+								onclick={drawerClose}>×</button
 							>
 							{#each mobileNavLinks as item}
 								{#if item.url !== ''}

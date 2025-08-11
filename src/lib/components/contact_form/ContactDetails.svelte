@@ -52,20 +52,21 @@
 	];
 
 	const contactLinkStyle =
-		'transform transition-colors duration-200 hover:text-blue-600 hover:font-semibold';
+		'transform transition-all duration-200 hover:text-blue-600 hover:font-semibold text-gray-700 dark:text-gray-300';
 </script>
 
-<div class="mt-10 pl-0 lg:pl-12">
+<div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-xl border border-gray-200 dark:border-gray-700">
+	<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">Контактна информация</h2>
 	{#each contactItems as data}
 		<!-- Contact card -->
-		<div class="mb-10 flex pt-1">
+		<div class="mb-8 flex items-start pt-2 last:mb-0">
 			<!-- Contact card icon wrapper (left side)-->
 			<div
-				class="mr-4 flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-amber-700"
+				class="mr-6 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 border-2 border-blue-200 dark:border-blue-700 text-blue-600 dark:text-blue-400 shadow-lg"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					class="h-6 w-6"
+					class="h-8 w-8"
 					fill="none"
 					viewBox="0 0 24 24"
 					stroke="currentColor"
@@ -74,8 +75,8 @@
 				</svg>
 			</div>
 			<!-- Contact card title and content text (right side)-->
-			<div>
-				<h2 class="mb-2 text-xl font-semibold">{data.title}</h2>
+			<div class="flex-1">
+				<h3 class="mb-3 text-xl font-bold text-gray-900 dark:text-white">{data.title}</h3>
 				{#each data.elements as e}
 					{#if data.type === ContactType.tel}
 						<a

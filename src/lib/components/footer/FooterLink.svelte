@@ -5,12 +5,12 @@
 		href: string;
 	}
 	let { children, href = '' }: Props = $props();
-	const aria = `lint to ${href}`;
+	const aria = `link to ${href}`;
 </script>
 
 <a
 	{href}
-	class="hover:text-primary-400 text-xs text-gray-500 hover:underline lg:text-sm dark:text-gray-400"
+	class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 text-sm font-medium transition-colors duration-200 hover:underline"
 	aria-label="Developer contact page"
 >
 	{#if children}

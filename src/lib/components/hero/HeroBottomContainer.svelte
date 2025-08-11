@@ -27,25 +27,35 @@
 {#snippet item(svg: string, title: string, description: string)}
 	<!-- BOTTOM CONTAINER ITEMS -->
 	<div
-		class="flex flex-col items-center rounded-lg p-4 text-center transition-transform hover:scale-105 hover:transform hover:shadow-md"
+		class="flex flex-col items-center rounded-xl p-6 text-center transition-all duration-300 hover:scale-105 hover:shadow-xl bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm"
 	>
 		<div
-			class="mb-4 flex h-15 w-15 items-center justify-center rounded-full border-2 border-amber-400/5 transition-all hover:border-amber-500 hover:bg-amber-50 md:h-17 md:w-17"
+			class="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 border-2 border-blue-200 dark:border-blue-700 transition-all duration-300 hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-800/50 md:h-24 md:w-24 shadow-lg"
 		>
 			{#if svg}
-				<img src={svg} width="66" height="70" alt={title} />
+				<img src={svg} width="48" height="48" alt={title} class="filter-blue-600 dark:filter-blue-400" />
 			{/if}
 		</div>
-		<h2 class="text-secondary-950 dark:text-secondary-100 mb-3 text-xl font-semibold">{title}</h2>
-		<p class="text-gray-900 dark:text-gray-300">{description}</p>
+		<h2 class="text-gray-900 dark:text-white mb-4 text-xl font-bold">{title}</h2>
+		<p class="text-gray-700 dark:text-gray-300 leading-relaxed">{description}</p>
 	</div>
 {/snippet}
 
 <div
-	class="bg-surface-50/80 shadow-surface-200/40 relative z-10 mx-4 -mt-12 flex flex-col gap-4 rounded-md px-6 py-8 shadow-lg md:mx-8 md:-mt-14 md:grid md:grid-cols-3 md:px-12 md:py-12 lg:grid-cols-3 dark:bg-gray-800/80"
+	class="bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-2xl relative z-10 mx-4 -mt-16 flex flex-col gap-6 rounded-2xl px-8 py-12 md:mx-8 md:-mt-20 md:grid md:grid-cols-3 md:px-16 md:py-16 lg:grid-cols-3 border border-gray-200/50 dark:border-gray-700/50"
 >
 	<!-- BOTTOM CONTAINER ITEMS -->
 	{#each bottomItems as { svg, title, description }}
 		{@render item(svg, title, description)}
 	{/each}
 </div>
+
+<style>
+	.filter-blue-600 {
+		filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+	}
+
+	.dark .filter-blue-400 {
+		filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(190deg) brightness(118%) contrast(119%);
+	}
+</style>

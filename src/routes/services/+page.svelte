@@ -39,37 +39,35 @@
 	];
 
 	function description(p: string, span: string): string {
-		return `<p itemprop="description" class="mb-6 dark:text-gray-900 text-gray-600">${p}<span class="text-secondary-900 dark:text-secondary-50 font-semibold">${span}</span></p>`;
+		return `<p itemprop="description" class="mb-6 text-gray-700 dark:text-gray-300 leading-relaxed">${p}<span class="text-blue-700 dark:text-blue-400 font-semibold">${span}</span></p>`;
 	}
 </script>
 
-<article itemscope itemtype="https://schema.org/Service">
-	<div class="overflow-hiddenpx-4 bg-surface-50 dark:bg-surface-950 w-full py-12">
+<article itemscope itemtype="https://schema.org/Service" class="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+	<div class="overflow-hidden px-4 w-full py-16">
 		<div class="mx-auto max-w-6xl">
 			<h1
-				class="relative mx-4 mt-2 mb-8 overflow-visible py-8 text-center text-5xl font-bold md:overflow-hidden"
+				class="relative mx-4 mt-2 mb-12 overflow-visible py-8 text-center text-5xl font-bold md:overflow-hidden"
 			>
 				<span
-					class="text-secondary-200/8 absolute top-1/2 left-1/2 z-5 w-full -translate-x-1/2 -translate-y-1/2 transform align-text-top text-6xl tracking-widest md:text-7xl md:tracking-[0.2em] lg:text-9xl"
+					class="text-blue-200/20 dark:text-blue-800/20 absolute top-1/2 left-1/2 z-5 w-full -translate-x-1/2 -translate-y-1/2 transform align-text-top text-6xl tracking-widest md:text-7xl md:tracking-[0.2em] lg:text-9xl"
 					>SERVICES</span
 				>
-				<span class="relative z-20 align-bottom text-2xl opacity-38 md:text-4xl lg:text-6xl"
+				<span class="relative z-20 align-bottom text-2xl text-gray-800 dark:text-white md:text-4xl lg:text-6xl font-bold"
 					>КАКВО ПРЕДЛАГАМЕ</span
 				>
 			</h1>
-			<!-- <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"> {/* Improved grid layout */} -->
-			<div class="mx-4 grid grid-cols-1 gap-6 md:grid-cols-2 lg:mx-2 lg:grid-cols-3">
+			<div class="mx-4 grid grid-cols-1 gap-8 md:grid-cols-2 lg:mx-2 lg:grid-cols-3">
 				{#each services as { title, description, img, imgAlt }}
 					<div
-						class="group bg-secondary-50 dark:bg-secondary-300 rounded-lg p-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+						class="group bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border border-gray-200 dark:border-gray-700"
 					>
 						<div
-							class="mb-6 flex h-18 w-18 items-center justify-center rounded-lg bg-purple-700 transition-all duration-300 group-hover:bg-purple-800 md:h-22 md:w-22"
+							class="mb-6 flex h-20 w-20 items-center justify-center rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 border-2 border-blue-200 dark:border-blue-700 transition-all duration-300 group-hover:border-blue-400 group-hover:bg-blue-50 dark:group-hover:bg-blue-800/50 md:h-24 md:w-24 shadow-lg"
 						>
-							<!-- <img src={img} alt={imgAlt} width="64" height="64" class="object-contain" /> {/* Improved image handling */} -->
-							<img src={img} alt={imgAlt} />
+							<img src={img} alt={imgAlt} width="48" height="48" class="filter-blue-600 dark:filter-blue-400" />
 						</div>
-						<h2 itemprop="name" class="mb-3 text-xl font-semibold text-gray-800">{title}</h2>
+						<h2 itemprop="name" class="mb-4 text-xl font-bold text-gray-900 dark:text-white">{title}</h2>
 						{@html description}
 					</div>
 				{/each}
@@ -77,3 +75,13 @@
 		</div>
 	</div>
 </article>
+
+<style>
+	.filter-blue-600 {
+		filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+	}
+
+	.dark .filter-blue-400 {
+		filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(190deg) brightness(118%) contrast(119%);
+	}
+</style>

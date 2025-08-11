@@ -43,46 +43,46 @@
 		}
 	];
 	const bottomSmallLinksStyle =
-		'my-1 text-[calc(var(--text-xs)-3px)] text-gray-500 sm:text-center dark:text-gray-400 justify-self-end';
+		'my-2 text-sm text-gray-600 dark:text-gray-400 sm:text-center justify-self-end hover:text-gray-800 dark:hover:text-gray-200 transition-colors';
 </script>
 
 <!-- FOOTER SECTION  -->
-<footer class="bg-white dark:bg-gray-900">
-	<div class="mx-auto w-full max-w-screen-xl p-3 py-2 lg:py-8">
+<footer class="bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 border-t border-gray-200 dark:border-gray-700">
+	<div class="mx-auto w-full max-w-screen-xl p-6 py-8 lg:py-12">
 		<div class="md:flex md:justify-between">
 			<!-- FOOTER left sidelogo and name  -->
-			<div class="mb-6 md:mb-0" role="link">
-				<Logo href={hometUrl} src={logoUrl} text="Варна" />
+			<div class="mb-8 md:mb-0" role="link">
+				<Logo href={hometUrl} src={logoUrl} />
 			</div>
 			<!-- FOOTER right side links section -->
-			<div class="grid grid-cols-2 gap-8 sm:gap-6">
+			<div class="grid grid-cols-2 gap-8 sm:gap-12">
 				{#each footerSections as section}
 					{@render footerSection(section.title, section.links)}
 				{/each}
 			</div>
 		</div>
-		<hr class="mt-6 mb-2 border-gray-200 sm:mx-auto lg:my-8 dark:border-gray-700" />
+		<hr class="mt-8 mb-6 border-gray-300 sm:mx-auto lg:my-10 dark:border-gray-600" />
 		<div
 			id="bottom"
-			class="mx-3 flex flex-col-reverse place-items-end justify-evenly justify-items-end md:flex-row"
+			class="mx-3 flex flex-col-reverse place-items-end justify-evenly justify-items-end md:flex-row gap-6"
 		>
-			<div class="my-1">
+			<div class="my-2 space-y-2">
 				<p class={bottomSmallLinksStyle} aria-label="Developer name">
 					© {new Date().getFullYear()}
 					<FooterLink href={DEV_CONTACT}>jarek.code</FooterLink>. All Rights Reserved.
 				</p>
 				<p class={bottomSmallLinksStyle} aria-label="Image sources: SVG Repo">
-					Vectors and icons by <a href="https://www.svgrepo.com" target="_blank">SVG Repo</a>
+					Vectors and icons by <a href="https://www.svgrepo.com" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400">SVG Repo</a>
 				</p>
 				<p class={bottomSmallLinksStyle} aria-label="Image sources: Unsplash">
-					Photos by <a href="https://unsplash.com" target="_blank">Unsplash</a> and
-					<a href="https://www.imgix.com" target="_blank">imgix</a>
+					Photos by <a href="https://unsplash.com" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400">Unsplash</a> and
+					<a href="https://www.imgix.com" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400">imgix</a>
 				</p>
 			</div>
 			<!-- FOOTER bottom right side social icons section -->
 			<div id="top" class="my-4 flex sm:mt-0">
 				{#each socialIcons as icon, i}
-					<div class="{i > 0 ? 'ms-5' : ''} h-8 w-8">
+					<div class="{i > 0 ? 'ms-5' : ''} h-10 w-10">
 						<SocialIcon {...icon} />
 					</div>
 				{/each}
@@ -101,7 +101,7 @@
 
 {#snippet linkItem(item: { href: string; text: string })}
 	{#if item.href}
-		<li class="mb-2 md:mb-4">
+		<li class="mb-3 md:mb-4">
 			<FooterLink href={item.href}>{item.text}</FooterLink>
 		</li>
 	{/if}

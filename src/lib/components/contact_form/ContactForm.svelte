@@ -21,8 +21,8 @@
 		}
 	});
 
-	const errorStyle = 'bg-warning-50/40 text-error-800 border-error-500';
-	const successStyle = 'bg-success-200/40 text-primary-700 font-medium border-success-600';
+	const errorStyle = 'bg-red-50/80 text-red-800 border-red-500 dark:bg-red-900/20 dark:text-red-300 dark:border-red-600';
+	const successStyle = 'bg-green-50/80 text-green-800 font-medium border-green-600 dark:bg-green-900/20 dark:text-green-300 dark:border-green-500';
 	const checkboxText = 'С изпращането Вие се съгласявате с Условията и Политиката за поверителност';
 
 	function setThrottling(delaySec: number) {
@@ -40,13 +40,13 @@
 </script>
 
 <!-- Contact Form wrapper -->
-<div class="bg-surface-50 dark:bg-surface-400 lg:p5 rounded-lg p-3 shadow-sm md:p-8">
-	<h2 class="mb-6 text-2xl font-bold md:text-3xl">Форма за контакт</h2>
+<div class="bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 shadow-xl border border-gray-200 dark:border-gray-700 max-w-2xl mx-auto">
+	<h2 class="mb-8 text-2xl font-bold md:text-3xl text-center text-gray-900 dark:text-white">Форма за контакт</h2>
 	<!-- Superforms -->
-	<form method="POST" action="?/sendemail" use:enhance>
+	<form method="POST" action="?/sendemail" use:enhance class="space-y-6">
 		<!-- Email input wrapper -->
-		<div class="mb-4">
-			<label for="email" class="mb-1 hidden text-sm">E-mail</label>
+		<div>
+			<label for="email" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">E-mail</label>
 			<input
 				bind:value={$form.email}
 				disabled={isLoading}
@@ -54,7 +54,7 @@
 				maxlength="50"
 				type="email"
 				placeholder="Твоят e-mail *"
-				class="border-teal-8 dark:bg-surface-800 w-full rounded border px-4 py-3 transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+				class="w-full rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 focus:outline-none disabled:opacity-50"
 				id="email"
 				name="email"
 				aria-invalid={$errors?.email ? 'true' : undefined}
@@ -63,14 +63,13 @@
 			{#if $errors?.email}{@render errorMsg($errors?.email?.toString(), 'email')}{/if}
 		</div>
 		<!-- Message input wrapper -->
-		<div class="mb-4">
-			<label for="msg" class="mb-1 hidden text-sm">Съобщение</label>
+		<div>
+			<label for="msg" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">Съобщение</label>
 			<textarea
 				bind:value={$form.msg}
 				placeholder="Съобщение *"
 				rows="6"
-				class="border-teal-8 00 dark:bg-surface-800 w-full
-				rounded border px-4 py-3 transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+				class="w-full rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 focus:outline-none resize-vertical"
 				name="msg"
 				id="msg"
 				aria-invalid={$errors?.msg ? 'true' : undefined}
@@ -79,8 +78,8 @@
 			{#if $errors?.msg}{@render errorMsg($errors?.msg?.toString(), 'msg')}{/if}
 		</div>
 		<!-- Checkboxes wrapper -->
-		<div class="mb-4">
-			<div class="mb-1 flex items-start">
+		<div>
+			<div class="flex items-start space-x-3">
 				<input
 					name="terms"
 					bind:checked={termsCheckbox}
@@ -88,11 +87,11 @@
 					type="checkbox"
 					required
 					id="terms"
-					class="mt-1 mr-2"
+					class="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-700"
 					aria-invalid={$errors.terms ? 'true' : undefined}
 					aria-describedby="terms-error"
 				/>
-				<label for="terms" class="text-xs">
+				<label for="terms" class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
 					{checkboxText}
 				</label>
 			</div>
@@ -100,7 +99,7 @@
 		</div>
 		{#if $message}
 			<p
-				class="px-auto my-3 rounded-lg border-2 p-2 text-center {page.status == 200
+				class="rounded-lg border-2 p-4 text-center font-medium {page.status == 200
 					? successStyle
 					: errorStyle}"
 				role="alert"
@@ -112,9 +111,9 @@
 		<button
 			type="submit"
 			disabled={isLoading || $delayed}
-			class="transform rounded bg-blue-500 px-8 py-3 font-medium text-white transition-colors duration-200 hover:scale-105 hover:bg-blue-600"
+			class="w-full transform rounded-lg bg-blue-600 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-200 hover:bg-blue-700 hover:shadow-xl hover:scale-[1.02] focus:ring-4 focus:ring-blue-500/20 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
 		>
-			<div class="flex gap-8">
+			<div class="flex items-center justify-center gap-3">
 				{#if !$delayed}
 					Изпрати
 				{:else}
@@ -124,15 +123,15 @@
 		</button>
 
 		<!-- CF Turnstile sveltekit-turnstile -->
-		<div class="mx-1 mt-4 justify-items-end">
+		<div class="flex justify-center mt-6">
 			<Turnstile siteKey={turnstileSiteKey ?? ''} responseFieldName="cfTurnstileResponse" />
 		</div>
 	</form>
 </div>
 
 {#snippet errorMsg(txt: string | undefined, id: string = '')}
-	<p class="m-3" id={`${id}-error`}>
-		<span class="bg-warning-50/40 text-error-800 border-warning-800 rounded-lg border-2 p-1"
+	<p class="mt-2 text-sm" id={`${id}-error`}>
+		<span class="inline-flex items-center rounded-lg bg-red-50 px-3 py-2 text-red-800 dark:bg-red-900/20 dark:text-red-300 border border-red-200 dark:border-red-800"
 			>{txt ?? ''}</span
 		>
 	</p>
@@ -140,7 +139,7 @@
 
 {#snippet loadingSpinner()}
 	<svg
-		class="animate-spin text-gray-300"
+		class="animate-spin text-white"
 		viewBox="0 0 64 64"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +159,7 @@
 			stroke-width="5"
 			stroke-linecap="round"
 			stroke-linejoin="round"
-			class="text-blue-500"
+			class="text-blue-300"
 		>
 		</path>
 	</svg>
